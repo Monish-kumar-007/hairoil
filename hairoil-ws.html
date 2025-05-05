@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   LivHerbLuvHerb - Natural Rabbit Hair Oil
+  </title>
+  <script src="https://cdn.tailwindcss.com/3.4.16">
+  </script>
+  <script>
+   tailwind.config={theme:{extend:{colors:{primary:'#4a6741',secondary:'#c8a87d'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}
+  </script>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
+.cart-panel {
+position: fixed;
+top: 0;
+right: -100%;
+width: 100%;
+max-width: 400px;
+height: 100vh;
+background: white;
+box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+transition: right 0.3s ease;
+z-index: 1000;
+}
+@media (max-width: 640px) {
+.cart-panel {
+width: 100%;
+}
+}
+.cart-panel.open {
+right: 0;
+}
+.cart-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0,0,0,0.5);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+z-index: 999;
+}
+.cart-overlay.open {
+opacity: 1;
+visibility: visible;
+}
+.cart-item {
+animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+from {
+transform: translateX(100px);
+opacity: 0;
+}
+to {
+transform: translateX(0);
+opacity: 1;
+}
+}
+.glowing-text {
+animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+from {
+text-shadow: 0 0 5px rgba(255,255,255,0.5), 0 0 10px rgba(255,255,255,0.5);
+}
+to {
+text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8);
+}
+}
+.floating {
+animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0px); }
+}
+.slide {
+transition: all 0.5s ease;
+}
+.dark {
+background-color: #1a1a1a;
+color: #f5f5f5;
+}
+.dark .nav-bg {
+background-color: #252525;
+}
+.dark .card {
+background-color: #2d2d2d;
+}
+.dark .footer {
+background-color: #252525;
+}
+.dark .form-input {
+background-color: #333;
+color: #f5f5f5;
+border-color: #555;
+}
+.video-container {
+position: relative;
+overflow: hidden;
+width: 100%;
+height: 100vh;
+}
+.video-bg {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.video-overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #4a6741;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.testimonial-slider {
+overflow: hidden;
+position: relative;
+}
+.testimonial-track {
+display: flex;
+transition: transform 0.5s ease;
+}
+.testimonial-slide {
+flex: 0 0 100%;
+}
+.product-slider {
+overflow: hidden;
+position: relative;
+}
+.product-track {
+display: flex;
+transition: transform 0.5s ease;
+}
+.product-slide {
+flex: 0 0 100%;
+}
+.custom-checkbox {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #4a6741;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #4a6741;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.hamburger {
+display: none;
+cursor: pointer;
+}
+@media (max-width: 768px) {
+.hamburger {
+display: block;
+}
+.nav-menu {
+position: fixed;
+top: 70px;
+left: -100%;
+width: 100%;
+background: #fff;
+flex-direction: column;
+text-align: center;
+transition: 0.3s;
+box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+padding: 20px 0;
+z-index: 999;
+}
+.nav-menu.active {
+left: 0;
+}
+.dark .nav-menu {
+background: #252525;
+}
+.nav-menu li {
+margin: 15px 0;
+}
+}
+.brand-title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem; /* Equivalent to Tailwind's text-3xl */
+  color: #218807;   /* Example of Tailwind's text-primary (adjust as needed) */
+  text-decoration: none;
+}
+#cartbutton {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#cartbutton i {
+  color: #fff;
+}
+.navbar {
+  position: relative;
+}
+  </style>
+ </head>
+ <body class="bg-white text-gray-800 transition-colors duration-300">
+  <!-- Header Section -->
+  <header class="fixed w-full z-50 transition-colors duration-300 nav-bg bg-white shadow-md">
+   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <a class="brand-title" href="#">
+     LivHerbLuvHerb
+    </a>
+    <ul class="nav-menu hidden md:flex items-center space-x-8">
+     <li>
+      <a class="font-medium hover:text-primary transition-colors" href="#home">
+       Home
+      </a>
+     </li>
+     <li>
+      <a class="font-medium hover:text-primary transition-colors" href="#products">
+       Products
+      </a>
+     </li>
+     <li>
+      <a class="font-medium hover:text-primary transition-colors" href="#features">
+       Features
+      </a>
+     </li>
+     <li>
+      <a class="font-medium hover:text-primary transition-colors" href="#testimonials">
+       Testimonials
+      </a>
+     </li>
+     <li>
+      <a class="font-medium hover:text-primary transition-colors" href="#contact">
+       Contact
+      </a>
+     </li>
+    </ul>
+    <div class="flex items-center space-x-4">
+     <button class="relative p-2" id="cartButton">
+      <i class="ri-shopping-cart-line ri-lg">
+      </i>
+      <span class="absolute -top-1 -right-1 w-5 h-5 flex items-center justify-center bg-primary text-white text-xs rounded-full" id="cartCount">
+       0
+      </span>
+     </button>
+     <div class="hamburger">
+      <i class="ri-menu-line ri-2x">
+      </i>
+     </div>
+     <label class="custom-switch">
+      <input id="darkModeToggle" type="checkbox"/>
+      <span class="slider">
+      </span>
+     </label>
+    </div>
+   </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="video-container" id="home">
+   <div class="video-bg bg-cover bg-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20luxurious%20herbal%20hair%20oil%20scene%20with%20natural%20ingredients%20like%20herbs%2C%20flowers%2C%20and%20oils%20arranged%20on%20a%20wooden%20table.%20The%20background%20shows%20a%20serene%20garden%20with%20soft%20sunlight%20filtering%20through%20leaves.%20The%20overall%20atmosphere%20is%20natural%2C%20calming%2C%20and%20premium.%20The%20image%20has%20a%20warm%20color%20palette%20with%20earthy%20tones%20of%20green%20and%20brown&amp;width=1920&amp;height=1080&amp;seq=1&amp;orientation=landscape');">
+   </div>
+   <div class="video-overlay">
+   </div>
+   <div class="container mx-auto px-4 h-full flex items-center">
+    <div class="max-w-2xl text-white z-10">
+     <p class="text-xl mb-3 glowing-text">
+      Discover the Power of Nature
+     </p>
+     <h1 class="text-5xl md:text-6xl font-bold mb-6">
+      Rabbit Hair Oil
+      <br/>
+      <span class="text-3xl md:text-4xl">
+       Ancient Wisdom Meets Modern Science
+      </span>
+     </h1>
+     <p class="text-lg mb-8">
+      Experience the transformative power of our unique blend of herbal ingredients and the revitalizing properties of rabbit blood for stronger, healthier, and more vibrant hair.
+     </p>
+     <div class="flex space-x-4">
+      <a class="bg-primary hover:bg-opacity-90 text-white px-8 py-3 !rounded-button font-medium transition-all shadow-lg hover:shadow-xl whitespace-nowrap" href="#products">
+       Shop Now
+      </a>
+      <a class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white border border-white px-8 py-3 !rounded-button font-medium transition-all whitespace-nowrap" href="#features">
+       Learn More
+      </a>
+     </div>
+    </div>
+   </div>
+   <div class="absolute bottom-10 right-10 floating">
+    <div class="w-20 h-20 flex items-center justify-center bg-white bg-opacity-20 rounded-full">
+     <i class="ri-plant-line ri-2x text-white">
+     </i>
+    </div>
+   </div>
+   <div class="absolute top-40 right-40 floating" style="animation-delay: 1s;">
+    <div class="w-16 h-16 flex items-center justify-center bg-white bg-opacity-20 rounded-full">
+     <i class="ri-leaf-line ri-2x text-white">
+     </i>
+    </div>
+   </div>
+  </section>
+  <!-- Product Showcase -->
+  <section class="py-20 bg-gray-50" id="products">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+     <h2 class="text-4xl font-bold mb-4">
+      Our Premium Products
+     </h2>
+     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Discover our range of natural hair care solutions powered by ancient herbal wisdom and modern science.
+     </p>
+    </div>
+    <div class="product-slider relative">
+     <div class="product-track flex">
+      <!-- Slide 1 -->
+      <div class="product-slide px-4">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Classic Rabbit Hair Oil" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20bottle%20of%20herbal%20hair%20oil%20with%20a%20luxurious%20glass%20container%20and%20wooden%20cap.%20The%20oil%20has%20a%20rich%20amber%20color%20visible%20through%20the%20transparent%20bottle.%20The%20bottle%20has%20a%20minimalist%2C%20elegant%20design%20with%20a%20small%20label.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20product&amp;width=600&amp;height=400&amp;seq=2&amp;orientation=portrait"/>
+          <div class="absolute top-4 right-4 bg-red-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+           20% OFF
+          </div>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Classic Rabbit Hair Oil
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Our signature blend with 7 powerful herbs and rabbit blood extract for complete hair rejuvenation.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-gray-400 line-through">
+             ₹49.99
+            </span>
+            <span class="text-2xl font-bold text-primary ml-2">
+             ₹39.99
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Add to Cart
+           </button>
+          </div>
+         </div>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Intensive Repair Formula" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20bottle%20of%20intensive%20herbal%20hair%20oil%20with%20a%20luxurious%20dark%20glass%20container%20and%20golden%20cap.%20The%20oil%20has%20a%20rich%20deep%20amber%20color%20visible%20through%20the%20transparent%20parts.%20The%20bottle%20has%20an%20elegant%20design%20with%20a%20small%20premium%20label.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20product&amp;width=600&amp;height=400&amp;seq=3&amp;orientation=portrait"/>
+          <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+           NEW
+          </div>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Intensive Repair Formula
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Extra-concentrated formula with double rabbit blood extract for severely damaged hair.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-2xl font-bold text-primary">
+             ₹59.99
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Add to Cart
+           </button>
+          </div>
+         </div>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Travel Size Kit" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20travel-sized%20bottle%20of%20herbal%20hair%20oil%20with%20a%20compact%20elegant%20glass%20container%20and%20wooden%20cap.%20The%20oil%20has%20a%20golden%20amber%20color%20visible%20through%20the%20transparent%20bottle.%20The%20bottle%20has%20a%20minimalist%2C%20elegant%20design%20with%20a%20small%20label.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20product&amp;width=600&amp;height=400&amp;seq=4&amp;orientation=portrait"/>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Travel Size Kit
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Perfect for on-the-go hair care, includes our classic formula in convenient travel-friendly packaging.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-2xl font-bold text-primary">
+            ₹24.99
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Add to Cart
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="product-slide px-4">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Luxury Gift Set" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20gift%20set%20of%20herbal%20hair%20oil%20products%20arranged%20beautifully%20in%20an%20elegant%20wooden%20box.%20The%20set%20includes%20multiple%20bottles%20of%20different%20sizes%20with%20matching%20design.%20The%20products%20have%20a%20rich%20amber%20color%20visible%20through%20transparent%20glass.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20gift%20set&amp;width=600&amp;height=400&amp;seq=5&amp;orientation=portrait"/>
+          <div class="absolute top-4 right-4 bg-secondary text-white text-sm font-bold px-3 py-1 rounded-full">
+           GIFT SET
+          </div>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Luxury Gift Set
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Complete hair care collection with our signature oil, shampoo, and conditioner in an elegant gift box.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-2xl font-bold text-primary">
+            ₹89.99
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Add to Cart
+           </button>
+          </div>
+         </div>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Scalp Treatment" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20bottle%20of%20herbal%20hair%20oil%20with%20scalp%20treatment%20applicator%20tip.%20The%20elegant%20glass%20container%20has%20a%20special%20applicator%20cap%20for%20precise%20application.%20The%20oil%20has%20a%20rich%20amber%20color%20visible%20through%20the%20transparent%20bottle.%20The%20bottle%20has%20a%20professional%2C%20elegant%20design%20with%20a%20small%20label.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20product&amp;width=600&amp;height=400&amp;seq=6&amp;orientation=portrait"/>
+          <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+           BESTSELLER
+          </div>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Scalp Treatment
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Targeted formula with precision applicator to nourish the scalp and promote healthy hair growth.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-2xl font-bold text-primary">
+             ₹44.99
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Add to Cart
+           </button>
+          </div>
+         </div>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:transform hover:scale-105">
+         <div class="relative">
+          <img alt="Monthly Subscription Box" class="w-full h-64 object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20premium%20subscription%20box%20of%20herbal%20hair%20oil%20products%20arranged%20beautifully.%20The%20box%20is%20elegant%20with%20a%20premium%20design%20and%20contains%20multiple%20hair%20care%20products%20including%20the%20signature%20rabbit%20hair%20oil.%20The%20products%20have%20matching%20design%20elements.%20The%20background%20is%20plain%20and%20neutral%20to%20highlight%20the%20subscription%20box&amp;width=600&amp;height=400&amp;seq=7&amp;orientation=portrait"/>
+          <div class="absolute top-4 right-4 bg-purple-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+           SAVE 15%
+          </div>
+         </div>
+         <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">
+           Monthly Subscription Box
+          </h3>
+          <p class="text-gray-600 mb-4">
+           Get our premium hair oil delivered monthly and save 15%. Cancel anytime.
+          </p>
+          <div class="flex justify-between items-center">
+           <div>
+            <span class="text-gray-400 line-through">
+             ₹49.99
+            </span>
+            <span class="text-2xl font-bold text-primary ml-2">
+             ₹42.49
+            </span>
+           </div>
+           <button class="bg-primary hover:bg-opacity-90 text-white px-4 py-2 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap">
+            Subscribe
+           </button>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <button class="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 product-prev">
+      <i class="ri-arrow-left-s-line ri-lg">
+      </i>
+     </button>
+     <button class="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 product-next">
+      <i class="ri-arrow-right-s-line ri-lg">
+      </i>
+     </button>
+     <div class="flex justify-center mt-8 product-dots">
+      <button class="w-3 h-3 rounded-full bg-primary mx-1 product-dot active">
+      </button>
+      <button class="w-3 h-3 rounded-full bg-gray-300 mx-1 product-dot">
+      </button>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Features Section -->
+  <section class="py-20" id="features">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4">
+      Why Choose Our Rabbit Hair Oil?
+     </h2>
+     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Our unique formula combines ancient herbal wisdom with modern science to deliver exceptional results.
+     </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+     <div class="card bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:transform hover:scale-105">
+      <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6 floating">
+       <i class="ri-leaf-line ri-2x text-primary">
+       </i>
+      </div>
+      <h3 class="text-xl font-bold mb-3">
+       100% Natural Ingredients
+      </h3>
+      <p class="text-gray-600">
+       Our formula contains only natural herbal extracts and rabbit blood, with no harmful chemicals or additives.
+      </p>
+     </div>
+     <div class="card bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:transform hover:scale-105">
+      <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6 floating" style="animation-delay: 0.5s;">
+       <i class="ri-test-tube-line ri-2x text-primary">
+       </i>
+      </div>
+      <h3 class="text-xl font-bold mb-3">
+       Scientifically Proven
+      </h3>
+      <p class="text-gray-600">
+       Clinically tested to reduce hair fall by 78% and promote 65% faster hair growth in just 8 weeks.
+      </p>
+     </div>
+     <div class="card bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:transform hover:scale-105">
+      <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6 floating" style="animation-delay: 1s;">
+       <i class="ri-heart-line ri-2x text-primary">
+       </i>
+      </div>
+      <h3 class="text-xl font-bold mb-3">
+       Cruelty-Free Process
+      </h3>
+      <p class="text-gray-600">
+       We ethically source rabbit blood without harming animals, using only humane collection methods.
+      </p>
+     </div>
+     <div class="card bg-white p-8 rounded-lg shadow-lg text-center transition-transform hover:transform hover:scale-105">
+      <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mx-auto mb-6 floating" style="animation-delay: 1.5s;">
+       <i class="ri-recycle-line ri-2x text-primary">
+       </i>
+      </div>
+      <h3 class="text-xl font-bold mb-3">
+       Eco-Friendly Packaging
+      </h3>
+      <p class="text-gray-600">
+       All our products come in sustainable, recyclable packaging to minimize environmental impact.
+      </p>
+     </div>
+    </div>
+    <div class="mt-20 bg-gray-50 rounded-lg overflow-hidden">
+     <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="p-10 md:p-16 flex flex-col justify-center">
+       <h3 class="text-3xl font-bold mb-6">
+        The Science Behind Our Formula
+       </h3>
+       <p class="text-gray-600 mb-6">
+        Our unique blend combines seven powerful herbs with rabbit blood extract, which is rich in growth factors and proteins that nourish hair follicles from within.
+       </p>
+       <ul class="space-y-4">
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          Rabbit blood contains high levels of keratin and collagen that strengthen hair structure
+         </p>
+        </li>
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          Herbal extracts stimulate blood circulation in the scalp, promoting nutrient delivery
+         </p>
+        </li>
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          Our proprietary extraction process preserves all active compounds for maximum efficacy
+         </p>
+        </li>
+       </ul>
+      </div>
+      <div class="relative">
+       <img alt="The Science Behind Our Formula" class="w-full h-full object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20scientific%20laboratory%20scene%20showing%20the%20process%20of%20creating%20herbal%20hair%20oil.%20The%20image%20shows%20various%20herbs%2C%20extracts%2C%20and%20scientific%20equipment%20like%20beakers%20and%20test%20tubes.%20A%20researcher%20in%20a%20lab%20coat%20is%20carefully%20measuring%20ingredients.%20The%20laboratory%20looks%20modern%20and%20clean%20with%20natural%20light.%20The%20scene%20conveys%20precision%20and%20scientific%20methodology&amp;width=800&amp;height=600&amp;seq=8&amp;orientation=portrait"/>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50" id="testimonials">
+   <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4">
+      What Our Customers Say
+     </h2>
+     <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+      Thousands of satisfied customers have experienced the transformative power of our Rabbit Hair Oil.
+     </p>
+    </div>
+    <div class="testimonial-slider relative">
+     <div class="testimonial-track flex">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-slide px-4">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="Emily Richardson" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20middle-aged%20woman%20with%20healthy%2C%20shiny%20long%20brown%20hair.%20She%20has%20a%20warm%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20her%20hair%20quality&amp;width=100&amp;height=100&amp;seq=9&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Priya
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "After struggling with hair loss for years, I tried LivHerbLuvHerb's Rabbit Hair Oil as a last resort. Within just 4 weeks, I noticed significantly less hair fall and new growth! My hair feels thicker and healthier than it has in decades."
+         </p>
+        </div>
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="James Chen" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20young%20Asian%20man%20with%20thick%2C%20healthy%20black%20hair%20styled%20neatly.%20He%20has%20a%20confident%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20his%20hair%20quality&amp;width=100&amp;height=100&amp;seq=10&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Vimal
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-half-fill">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "I was skeptical about the rabbit blood ingredient at first, but the results speak for themselves. My receding hairline has started filling in, and my hair feels stronger than ever. This product is truly revolutionary!"
+         </p>
+        </div>
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="Sophia Williams" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20middle-aged%20Black%20woman%20with%20beautiful%2C%20healthy%20natural%20curly%20hair.%20She%20has%20a%20bright%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20her%20hair%20texture%20and%20quality&amp;width=100&amp;height=100&amp;seq=11&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Merry
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "As someone with naturally curly hair, finding products that don't weigh down my curls is challenging. This oil is lightweight yet incredibly nourishing. My curls are more defined, and my scalp feels healthier than ever!"
+         </p>
+        </div>
+       </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-slide px-4">
+       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="Robert Thompson" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20an%20older%20man%20in%20his%2060s%20with%20healthy%2C%20thick%20silver-gray%20hair.%20He%20has%20a%20distinguished%20look%20with%20a%20warm%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20his%20hair%20quality&amp;width=100&amp;height=100&amp;seq=12&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Ramesh Kumar
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "At 65, I had accepted that thinning hair was just part of aging. After using the Rabbit Hair Oil for 3 months, my wife noticed new growth, and my existing hair is thicker. It's given me confidence I haven't felt in years!"
+         </p>
+        </div>
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="Olivia Parker" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20young%20woman%20with%20long%2C%20healthy%20blonde%20hair.%20She%20has%20a%20bright%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20her%20hair%20quality%20and%20shine&amp;width=100&amp;height=100&amp;seq=13&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Andrea Ravi
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-line">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "As a hairstylist, I've tried countless products, but this oil stands out. I recommend it to all my clients with damaged hair, and the feedback has been incredible. It's now a staple in my salon!"
+         </p>
+        </div>
+        <div class="card bg-white p-8 rounded-lg shadow-lg">
+         <div class="flex items-center mb-6">
+          <img alt="Ahmed Hassan" class="w-16 h-16 rounded-full object-cover mr-4" src="https://readdy.ai/api/search-image?query=A%20professional%20headshot%20of%20a%20middle-eastern%20man%20with%20thick%2C%20healthy%20dark%20hair%20and%20well-groomed%20beard.%20He%20has%20a%20confident%20smile%20and%20is%20looking%20directly%20at%20the%20camera.%20The%20background%20is%20neutral%20and%20soft.%20The%20image%20is%20well-lit%20with%20natural%20lighting%20to%20highlight%20his%20hair%20quality&amp;width=100&amp;height=100&amp;seq=14&amp;orientation=squarish"/>
+          <div>
+           <h4 class="font-bold">
+            Shankar
+           </h4>
+           <div class="flex text-yellow-400 mt-1">
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-fill">
+            </i>
+            <i class="ri-star-half-fill">
+            </i>
+           </div>
+          </div>
+         </div>
+         <p class="text-gray-600">
+          "I use this oil on both my hair and beard, and the results are amazing. My beard is fuller, and my hair has stopped thinning. The herbal scent is pleasant and not overpowering. Highly recommend!"
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <button class="absolute top-1/2 left-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 testimonial-prev">
+      <i class="ri-arrow-left-s-line ri-lg">
+      </i>
+     </button>
+     <button class="absolute top-1/2 right-4 transform -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white rounded-full shadow-md z-10 testimonial-next">
+      <i class="ri-arrow-right-s-line ri-lg">
+      </i>
+     </button>
+     <div class="flex justify-center mt-8 testimonial-dots">
+      <button class="w-3 h-3 rounded-full bg-primary mx-1 testimonial-dot active">
+      </button>
+      <button class="w-3 h-3 rounded-full bg-gray-300 mx-1 testimonial-dot">
+      </button>
+     </div>
+    </div>
+    <div class="mt-20 bg-white rounded-lg shadow-lg overflow-hidden">
+     <div class="grid grid-cols-1 md:grid-cols-2">
+      <div class="p-10 md:p-16 flex flex-col justify-center">
+       <h3 class="text-3xl font-bold mb-6">
+        Before &amp; After Results
+       </h3>
+       <p class="text-gray-600 mb-6">
+        Our customers see visible results in as little as 4 weeks with consistent use of our Rabbit Hair Oil.
+       </p>
+       <ul class="space-y-4">
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          78% reduction in hair fall within 4 weeks
+         </p>
+        </li>
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          65% increase in hair thickness after 8 weeks
+         </p>
+        </li>
+        <li class="flex items-start">
+         <div class="w-6 h-6 flex items-center justify-center bg-primary rounded-full mr-3 mt-1 flex-shrink-0">
+          <i class="ri-check-line text-white">
+          </i>
+         </div>
+         <p>
+          92% of users report improved hair texture and shine
+         </p>
+        </li>
+       </ul>
+       <a class="bg-primary hover:bg-opacity-90 text-white px-8 py-3 !rounded-button font-medium transition-all shadow-lg hover:shadow-xl mt-8 inline-block whitespace-nowrap" href="#products">
+        Try It Now
+       </a>
+      </div>
+      <div class="relative">
+       <img alt="Before and After Results" class="w-full h-full object-cover object-top" src="https://readdy.ai/api/search-image?query=A%20professional%20before%20and%20after%20comparison%20of%20hair%20treatment%20results.%20The%20left%20side%20shows%20thin%2C%20dull%20hair%20with%20visible%20scalp.%20The%20right%20side%20shows%20the%20same%20person%20with%20visibly%20thicker%2C%20shinier%2C%20and%20healthier%20hair.%20The%20image%20is%20well-lit%20to%20clearly%20show%20the%20transformation.%20The%20background%20is%20neutral%20and%20professional&amp;width=800&amp;height=600&amp;seq=15&amp;orientation=landscape"/>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Form Section -->
+  <section class="py-20" id="contact">
+   <div class="container mx-auto px-4">
+    <div class="max-w-5xl mx-auto">
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div>
+       <h2 class="text-4xl font-bold mb-6">
+        Get In Touch
+       </h2>
+       <p class="text-lg text-gray-600 mb-8">
+        Have questions about our products or need personalized hair care advice? Our team of experts is here to help.
+       </p>
+       <div class="space-y-6">
+        <div class="flex items-start">
+         <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 flex-shrink-0">
+          <i class="ri-map-pin-line ri-lg text-primary">
+          </i>
+         </div>
+         <div>
+          <h4 class="font-bold mb-1">
+           Our Location
+          </h4>
+          <p class="text-gray-600">
+            3, DOLLY AVENUE, MURUGAN NAGAR, 
+           <br/>
+           VENGAMBAKKAM, CHENNAI - 600048.
+          </p>
+         </div>
+        </div>
+        <div class="flex items-start">
+         <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 flex-shrink-0">
+          <i class="ri-mail-line ri-lg text-primary">
+          </i>
+         </div>
+         <div>
+          <h4 class="font-bold mb-1">
+           Email Us
+          </h4>
+          <p class="text-gray-600">
+            livherbluvherb@gmail.com
+          </p>
+         </div>
+        </div>
+        <div class="flex items-start">
+         <div class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mr-4 flex-shrink-0">
+          <i class="ri-phone-line ri-lg text-primary">
+          </i>
+         </div>
+         <div>
+          <h4 class="font-bold mb-1">
+           Call Us
+          </h4>
+          <p class="text-gray-600">
+           +91 6369253306
+           <br/>
+           Mon-Fri, 9am-6pm IST
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="mt-10">
+        <h4 class="font-bold mb-4">
+         Follow Us
+        </h4>
+        <div class="flex space-x-4">
+         <a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white rounded-full transition-colors" href="#">
+          <i class="ri-facebook-fill">
+          </i>
+         </a>
+         <a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white rounded-full transition-colors" href="#">
+          <i class="ri-instagram-line">
+          </i>
+         </a>
+         <a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white rounded-full transition-colors" href="#">
+          <i class="ri-twitter-x-line">
+          </i>
+         </a>
+         <a class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-primary hover:text-white rounded-full transition-colors" href="#">
+          <i class="ri-youtube-line">
+          </i>
+         </a>
+        </div>
+       </div>
+      </div>
+      <div>
+       <div class="bg-white rounded-lg shadow-lg p-8">
+        <h3 class="text-2xl font-bold mb-6">
+         Send Us a Message
+        </h3>
+        <form class="space-y-6" id="contactForm">
+         <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="name">
+           Your Name
+          </label>
+          <input class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input text-sm" id="name" name="name" placeholder="Enter your name" required="" type="text"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="email">
+           Your Email
+          </label>
+          <input class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input text-sm" id="email" name="email" placeholder="Enter your email" required="" type="email"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="subject">
+           Subject
+          </label>
+          <input class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input text-sm" id="subject" name="subject" placeholder="Enter subject" type="text"/>
+         </div>
+         <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1" for="message">
+           Your Message
+          </label>
+          <textarea class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent form-input text-sm" id="message" name="message" placeholder="Enter your message" required="" rows="4"></textarea>
+         </div>
+         <div>
+          <label class="custom-checkbox">
+           <input required="" type="checkbox"/>
+           <span class="checkmark">
+           </span>
+           I agree to the processing of my personal data
+          </label>
+         </div>
+         <button class="w-full bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap" type="submit">
+          Send Message
+         </button>
+        </form>
+        <div class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded" id="formSuccess">
+         Thank you for your message! We'll get back to you soon.
+        </div>
+        <div class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded" id="formError">
+         There was an error sending your message. Please try again.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- CTA Section -->
+  <section class="py-20 bg-primary text-white">
+   <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold mb-6">
+     Transform Your Hair Today
+    </h2>
+    <p class="text-xl mb-10 max-w-3xl mx-auto">
+     Join thousands of satisfied customers who have discovered the power of our unique Rabbit Hair Oil formula.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+     <a class="bg-white text-primary hover:bg-opacity-90 px-8 py-3 !rounded-button font-medium transition-all shadow-lg hover:shadow-xl whitespace-nowrap" href="#products">
+      Shop Now
+     </a>
+     <a class="bg-transparent border-2 border-white hover:bg-white hover:bg-opacity-10 px-8 py-3 !rounded-button font-medium transition-all whitespace-nowrap" href="#testimonials">
+      Read Reviews
+     </a>
+    </div>
+    <div class="mt-16">
+     <h3 class="text-2xl font-bold mb-6">
+      Subscribe for Special Offers
+     </h3>
+     <div class="max-w-md mx-auto">
+      <form class="flex flex-col sm:flex-row" id="subscribeForm">
+       <input class="flex-grow px-4 py-3 rounded-l-lg sm:rounded-r-none rounded-r-lg sm:mb-0 mb-2 border-none focus:outline-none text-gray-800 text-sm" placeholder="Enter your email" required="" type="email"/>
+       <button class="bg-secondary hover:bg-opacity-90 text-white px-6 py-3 rounded-r-lg sm:rounded-l-none rounded-l-lg font-medium transition-all whitespace-nowrap" type="submit">
+        Subscribe
+       </button>
+      </form>
+      <div class="hidden mt-4 p-2 bg-white bg-opacity-20 text-white rounded" id="subscribeSuccess">
+       Thank you for subscribing!
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-16 pb-8 footer">
+   <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+     <div>
+      <a class="text-3xl text-white mb-6 block" style="font-family: 'Permanent Marker'; letter-spacing: 2px;" href="#">
+       LivHerbLuvHerb
+      </a>
+      <p class="text-gray-400 mb-6">
+       Harnessing the power of nature and ancient wisdom to create revolutionary hair care products that deliver real results.
+      </p>
+      <div class="flex space-x-4">
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors" href="#">
+        <i class="ri-facebook-fill">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors" href="#">
+        <i class="ri-instagram-line">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors" href="#">
+        <i class="ri-twitter-x-line">
+        </i>
+       </a>
+       <a class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-colors" href="#">
+        <i class="ri-youtube-line">
+        </i>
+       </a>
+      </div>
+     </div>
+     <div>
+      <h4 class="text-xl font-bold mb-6">
+       Quick Links
+      </h4>
+      <ul class="space-y-3">
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#home">
+         Home
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#products">
+         Products
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#features">
+         Features
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#testimonials">
+         Testimonials
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#contact">
+         Contact
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-xl font-bold mb-6">
+       Customer Service
+      </h4>
+      <ul class="space-y-3">
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         FAQs
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Shipping &amp; Returns
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Privacy Policy
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Terms &amp; Conditions
+        </a>
+       </li>
+       <li>
+        <a class="text-gray-400 hover:text-white transition-colors" href="#">
+         Track Your Order
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div>
+      <h4 class="text-xl font-bold mb-6">
+       Contact Info
+      </h4>
+      <ul class="space-y-3">
+       <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+         <i class="ri-map-pin-line text-primary">
+         </i>
+        </div>
+        <span class="text-gray-400">
+          3, DOLLY AVENUE, MURUGAN NAGAR, 
+          <br/>
+          VENGAMBAKKAM, CHENNAI - 600048.
+        </span>
+       </li>
+       <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+         <i class="ri-mail-line text-primary">
+         </i>
+        </div>
+        <span class="text-gray-400">
+         livherbluvherb@gmail.com
+        </span>
+       </li>
+       <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+         <i class="ri-phone-line text-primary">
+         </i>
+        </div>
+        <span class="text-gray-400">
+         +916369253306
+        </span>
+       </li>
+       <li class="flex items-start">
+        <div class="w-5 h-5 flex items-center justify-center mr-3 mt-1">
+         <i class="ri-time-line text-primary">
+         </i>
+        </div>
+        <span class="text-gray-400">
+         Mon-Fri, 9am-6pm IST
+        </span>
+       </li>
+      </ul>
+     </div>
+    </div>
+    <div class="pt-8 border-t border-gray-800 text-center">
+     <p class="text-gray-400">
+      © 2025 LivHerbLuvHerb. All rights reserved.
+     </p>
+    </div>
+   </div>
+  </footer>
+  <!-- Cart Panel -->
+  <div class="cart-overlay">
+  </div>
+  <div class="cart-panel">
+   <div class="p-6 h-full flex flex-col">
+    <div class="flex justify-between items-center mb-6">
+     <h3 class="text-xl font-bold">
+      Shopping Cart
+     </h3>
+     <button class="p-2" id="closeCart">
+      <i class="ri-close-line ri-lg">
+      </i>
+     </button>
+    </div>
+    <div class="space-y-4 flex-grow overflow-auto" id="cartItems">
+    </div>
+    <div class="border-t border-gray-200 mt-6 pt-6">
+     <div class="flex justify-between mb-4">
+      <span class="font-bold">
+       Subtotal:
+      </span>
+      <span class="font-bold" id="cartSubtotal">
+       ₹0.00
+      </span>
+     </div>
+     <button class="w-full bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap" id="checkoutButton">
+      Proceed to Checkout
+     </button>
+    </div>
+   </div>
+  </div>
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-[1001] hidden" id="checkoutForm">
+   <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md">
+    <div class="bg-white rounded-lg shadow-xl p-6 mx-4">
+     <div class="flex justify-between items-center mb-6">
+      <h3 class="text-xl font-bold">
+       Checkout
+      </h3>
+      <button class="p-2" id="closeCheckout">
+       <i class="ri-close-line ri-lg">
+       </i>
+      </button>
+     </div>
+     <form class="space-y-4" id="checkoutFormElement">
+      <div>
+       <label class="block text-sm font-medium text-gray-700 mb-1">
+        Full Name
+       </label>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" name="name" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700 mb-1">
+        Email
+       </label>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" name="email" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700 mb-1">
+        Phone
+       </label>
+       <input class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" name="phone" required="" type="tel"/>
+      </div>
+      <div>
+       <label class="block text-sm font-medium text-gray-700 mb-1">
+        Shipping Address
+       </label>
+       <textarea class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" name="address" required="" rows="3"></textarea>
+      </div>
+      <button class="w-full bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap" type="submit">
+       Place Order
+      </button>
+     </form>
+     <div class="hidden" id="checkoutSuccess">
+      <div class="text-center py-8">
+       <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i class="ri-check-line ri-2x text-green-500">
+        </i>
+       </div>
+       <h3 class="text-xl font-bold mb-2">
+        Order Placed Successfully!
+       </h3>
+       <p class="text-gray-600 mb-6">
+        Thank you for your purchase. We'll send you an email with order details.
+       </p>
+       <button class="bg-primary hover:bg-opacity-90 text-white px-6 py-3 !rounded-button font-medium transition-all shadow-md hover:shadow-lg whitespace-nowrap" id="continueShoppingBtn">
+        Continue Shopping
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+darkModeToggle.addEventListener('change', function() {
+if (this.checked) {
+body.classList.add('dark');
+localStorage.setItem('darkMode', 'enabled');
+} else {
+body.classList.remove('dark');
+localStorage.setItem('darkMode', 'disabled');
+}
+});
+// Check for saved dark mode preference
+if (localStorage.getItem('darkMode') === 'enabled') {
+darkModeToggle.checked = true;
+body.classList.add('dark');
+}
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', function() {
+navMenu.classList.toggle('active');
+navMenu.classList.toggle('hidden');
+if (navMenu.classList.contains('active')) {
+hamburger.innerHTML = '<i class="ri-close-line ri-2x"></i>';
+} else {
+hamburger.innerHTML = '<i class="ri-menu-line ri-2x"></i>';
+}
+});
+// Close mobile menu when clicking on a nav link
+const navLinks = document.querySelectorAll('.nav-menu a');
+navLinks.forEach(link => {
+link.addEventListener('click', function() {
+navMenu.classList.remove('active');
+navMenu.classList.add('hidden');
+hamburger.innerHTML = '<i class="ri-menu-line ri-2x"></i>';
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Product Slider
+const productTrack = document.querySelector('.product-track');
+const productSlides = document.querySelectorAll('.product-slide');
+const productDots = document.querySelectorAll('.product-dot');
+const productPrev = document.querySelector('.product-prev');
+const productNext = document.querySelector('.product-next');
+let productCurrentIndex = 0;
+function updateProductSlider() {
+productTrack.style.transform = `translateX(-${productCurrentIndex * 100}%)`;
+productDots.forEach((dot, index) => {
+if (index === productCurrentIndex) {
+dot.classList.add('bg-primary');
+dot.classList.remove('bg-gray-300');
+} else {
+dot.classList.remove('bg-primary');
+dot.classList.add('bg-gray-300');
+}
+});
+}
+productPrev.addEventListener('click', function() {
+productCurrentIndex = (productCurrentIndex === 0) ? productSlides.length - 1 : productCurrentIndex - 1;
+updateProductSlider();
+});
+productNext.addEventListener('click', function() {
+productCurrentIndex = (productCurrentIndex === productSlides.length - 1) ? 0 : productCurrentIndex + 1;
+updateProductSlider();
+});
+productDots.forEach((dot, index) => {
+dot.addEventListener('click', function() {
+productCurrentIndex = index;
+updateProductSlider();
+});
+});
+// Auto slide for products
+setInterval(function() {
+productCurrentIndex = (productCurrentIndex === productSlides.length - 1) ? 0 : productCurrentIndex + 1;
+updateProductSlider();
+}, 6000);
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Testimonial Slider
+const testimonialTrack = document.querySelector('.testimonial-track');
+const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+const testimonialDots = document.querySelectorAll('.testimonial-dot');
+const testimonialPrev = document.querySelector('.testimonial-prev');
+const testimonialNext = document.querySelector('.testimonial-next');
+let testimonialCurrentIndex = 0;
+function updateTestimonialSlider() {
+testimonialTrack.style.transform = `translateX(-${testimonialCurrentIndex * 100}%)`;
+testimonialDots.forEach((dot, index) => {
+if (index === testimonialCurrentIndex) {
+dot.classList.add('bg-primary');
+dot.classList.remove('bg-gray-300');
+} else {
+dot.classList.remove('bg-primary');
+dot.classList.add('bg-gray-300');
+}
+});
+}
+testimonialPrev.addEventListener('click', function() {
+testimonialCurrentIndex = (testimonialCurrentIndex === 0) ? testimonialSlides.length - 1 : testimonialCurrentIndex - 1;
+updateTestimonialSlider();
+});
+testimonialNext.addEventListener('click', function() {
+testimonialCurrentIndex = (testimonialCurrentIndex === testimonialSlides.length - 1) ? 0 : testimonialCurrentIndex + 1;
+updateTestimonialSlider();
+});
+testimonialDots.forEach((dot, index) => {
+dot.addEventListener('click', function() {
+testimonialCurrentIndex = index;
+updateTestimonialSlider();
+});
+});
+// Auto slide for testimonials
+setInterval(function() {
+testimonialCurrentIndex = (testimonialCurrentIndex === testimonialSlides.length - 1) ? 0 : testimonialCurrentIndex + 1;
+updateTestimonialSlider();
+}, 8000);
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Floating Animation on Scroll
+const floatingElements = document.querySelectorAll('.floating');
+window.addEventListener('scroll', function() {
+floatingElements.forEach(element => {
+const elementPosition = element.getBoundingClientRect().top;
+const screenPosition = window.innerHeight;
+if (elementPosition < screenPosition) {
+element.style.animationPlayState = 'running';
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Contact Form Submission
+const contactForm = document.getElementById('contactForm');
+const formSuccess = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Simulate form submission
+setTimeout(function() {
+contactForm.reset();
+formSuccess.classList.remove('hidden');
+setTimeout(function() {
+formSuccess.classList.add('hidden');
+}, 5000);
+}, 1000);
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Subscribe Form Submission
+const subscribeForm = document.getElementById('subscribeForm');
+const subscribeSuccess = document.getElementById('subscribeSuccess');
+subscribeForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Simulate form submission
+setTimeout(function() {
+subscribeForm.reset();
+subscribeSuccess.classList.remove('hidden');
+setTimeout(function() {
+subscribeSuccess.classList.add('hidden');
+}, 5000);
+}, 1000);
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Cart Functionality
+const cartButton = document.getElementById('cartButton');
+const closeCart = document.getElementById('closeCart');
+const cartPanel = document.querySelector('.cart-panel');
+const cartOverlay = document.querySelector('.cart-overlay');
+const cartItems = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartSubtotal = document.getElementById('cartSubtotal');
+const checkoutButton = document.getElementById('checkoutButton');
+const checkoutForm = document.getElementById('checkoutForm');
+const closeCheckout = document.getElementById('closeCheckout');
+const checkoutFormElement = document.getElementById('checkoutFormElement');
+const checkoutItems = document.getElementById('checkoutItems');
+const checkoutTotal = document.getElementById('checkoutTotal');
+const checkoutSuccess = document.getElementById('checkoutSuccess');
+const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+let cart = [];
+function updateCart() {
+cartCount.textContent = cart.length;
+cartItems.innerHTML = '';
+let subtotal = 0;
+cart.forEach((item, index) => {
+subtotal += item.price;
+cartItems.innerHTML += `
+<div class="cart-item flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
+<img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded">
+<div class="flex-grow">
+<h4 class="font-bold">${item.name}</h4>
+<p class="text-primary font-bold">₹${item.price.toFixed(2)}</p>
+</div>
+<button onclick="removeFromCart(${index})" class="text-gray-400 hover:text-red-500">
+<i class="ri-delete-bin-line ri-lg"></i>
+</button>
+</div>
+`;
+});
+cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+}
+window.removeFromCart = function(index) {
+cart.splice(index, 1);
+updateCart();
+};
+function toggleCart() {
+cartPanel.classList.toggle('open');
+cartOverlay.classList.toggle('open');
+document.body.style.overflow = cartPanel.classList.contains('open') ? 'hidden' : '';
+}
+cartButton.addEventListener('click', toggleCart);
+closeCart.addEventListener('click', toggleCart);
+cartOverlay.addEventListener('click', toggleCart);
+checkoutButton.addEventListener('click', function() {
+if (cart.length === 0) {
+const emptyCartMsg = document.createElement('div');
+emptyCartMsg.className = 'text-center py-4 text-gray-500';
+emptyCartMsg.textContent = 'Your cart is empty';
+cartItems.innerHTML = '';
+cartItems.appendChild(emptyCartMsg);
+return;
+}
+checkoutForm.classList.remove('hidden');
+updateCheckoutSummary();
+});
+closeCheckout.addEventListener('click', function() {
+checkoutForm.classList.add('hidden');
+});
+function updateCheckoutSummary() {
+checkoutItems.innerHTML = '';
+let total = 0;
+cart.forEach(item => {
+total += item.price;
+checkoutItems.innerHTML += `
+<div class="flex justify-between text-sm">
+<span>${item.name}</span>
+<span>$${item.price.toFixed(2)}</span>
+</div>
+`;
+});
+checkoutTotal.textContent = `$${total.toFixed(2)}`;
+}
+checkoutFormElement.addEventListener('submit', function(e) {
+e.preventDefault();
+checkoutFormElement.style.display = 'none';
+checkoutSuccess.classList.remove('hidden');
+cart = [];
+updateCart();
+});
+continueShoppingBtn.addEventListener('click', function() {
+checkoutForm.classList.add('hidden');
+checkoutFormElement.style.display = 'block';
+checkoutSuccess.classList.add('hidden');
+toggleCart();
+});
+// Add to Cart functionality for all product buttons
+document.querySelectorAll('button').forEach(button => {
+if (button.textContent.includes('Add to Cart')) {
+button.addEventListener('click', function(e) {
+const productCard = e.target.closest('.card');
+const name = productCard.querySelector('h3').textContent;
+const priceText = productCard.querySelector('.text-primary').textContent;
+const price = parseFloat(priceText.replace('₹', ''));
+const image = productCard.querySelector('img').src;
+cart.push({ name, price, image });
+updateCart();
+toggleCart();
+});
+}
+});
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+  </script>
+ </body>
+</html>
